@@ -40,7 +40,7 @@ class _MyApplicationState extends State<MyApplication>
       builder: (_, __) => GetMaterialApp(
         getPages: appRoutes(),
         fallbackLocale: const Locale('en', 'US'),
-        title: 'photos app',
+        title: 'Daryaft',
         localizationsDelegates: const [
           DefaultCupertinoLocalizations.delegate,
           DefaultMaterialLocalizations.delegate,

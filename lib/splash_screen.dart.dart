@@ -1,4 +1,7 @@
+import 'package:daryaft_flutter/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../common/styles.dart';
 import 'common/user_defaults.dart';
@@ -25,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
         (UserDefaults.getApiToken() != null)) {
       //  Get.offNamed(DashboardPage.id);
     } else {
-      //Get.offNamed(LoginPage.id);
+      Get.offNamed(LoginPage.id);
     }
   }
 
