@@ -20,7 +20,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    gotoRelevantScreenOnUserType();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      gotoRelevantScreenOnUserType();
+    });
   }
 
   void gotoRelevantScreenOnUserType() async {

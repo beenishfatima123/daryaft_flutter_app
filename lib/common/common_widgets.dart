@@ -242,8 +242,8 @@ class Button extends StatelessWidget {
       onDoubleTap: () {},
       child: Padding(
         padding: EdgeInsets.only(
-            left: leftPadding == null ? 0.w : leftPadding!,
-            right: rightPading == null ? 0.w : rightPading!),
+            left: leftPadding == null ? 50.w : leftPadding!,
+            right: rightPading == null ? 50.w : rightPading!),
         child: Container(
           width: width,
           height: height,
