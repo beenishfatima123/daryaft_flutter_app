@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "713077305216",
+    "project_id": "daryaft-beelogix",
+    "storage_bucket": "daryaft-beelogix.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713077305216:android:4b96529b4e8493998cdb65",
+        "android_client_info": {
+          "package_name": "com.beelogix.daryaft.daryaft_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713077305216-dn62937csdcumcde1gpbejatvadp47m6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqjTHdBZ2yF19_7FGL8EJmNvgX2ZMrZBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713077305216-dn62937csdcumcde1gpbejatvadp47m6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
