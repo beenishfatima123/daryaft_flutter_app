@@ -116,9 +116,8 @@ class MyTextField extends StatelessWidget {
       ),
       child: TextFormField(
         obscureText: obsecureText ?? false,
-        /*  style:
-            AppTextStyles.textStyleNormalBodySmall.copyWith(color: textColor),
-      */
+        style: AppTextStyles.textStyleNormalBodySmall
+            .copyWith(color: textColor ?? AppColor.blackColor.value),
         controller: controller ?? TextEditingController(),
         initialValue: text,
         minLines: minLines,
@@ -137,10 +136,11 @@ class MyTextField extends StatelessWidget {
           labelText: hintText ?? "",
           hintText: hintText,
           filled: fillColor != null,
-          /* hintStyle:
-              AppTextStyles.textStyleBoldBodySmall.copyWith(color: hintColor),
+
+          hintStyle: AppTextStyles.textStyleBoldBodySmall
+              .copyWith(color: hintColor ?? AppColor.blackColor.value),
           labelStyle: AppTextStyles.textStyleNormalBodySmall
-              .copyWith(color: labelColor),*/
+              .copyWith(color: labelColor ?? AppColor.blackColor.value),
           prefixIcon: (prefixIcon != null)
               ? Padding(
                   padding: EdgeInsets.all(contentPadding ?? 100.w),
@@ -148,6 +148,7 @@ class MyTextField extends StatelessWidget {
                     svgPath: prefixIcon!,
                     width: 20.w,
                     height: 20.h,
+                    color: AppColor.primaryColor.value,
                   ),
                 )
               : null,
@@ -166,6 +167,7 @@ class MyTextField extends StatelessWidget {
                         svgPath: suffixIcon!,
                         width: 20.w,
                         height: 20.h,
+                        color: AppColor.blackColor.value,
                       ),
                     )
                   : (suffixIconWidet != null)
@@ -174,26 +176,26 @@ class MyTextField extends StatelessWidget {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(50.r),
             borderSide:
-                BorderSide(color: focusBorderColor ?? AppColor.alphaGrey),
+                BorderSide(color: focusBorderColor ?? AppColor.greyColor.value),
           ),
           disabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(50.r),
             borderSide:
-                BorderSide(color: focusBorderColor ?? AppColor.alphaGrey),
+                BorderSide(color: focusBorderColor ?? AppColor.greyColor.value),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(50.r),
-            borderSide:
-                BorderSide(color: unfocusBorderColor ?? AppColor.alphaGrey),
+            borderSide: BorderSide(
+                color: unfocusBorderColor ?? AppColor.greyColor.value),
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(50.r),
-            borderSide: BorderSide(color: AppColor.redColor),
+            borderSide: BorderSide(color: AppColor.redColor.value),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(50.r),
             borderSide:
-                BorderSide(color: focusBorderColor ?? AppColor.primaryColor),
+                BorderSide(color: focusBorderColor ?? AppColor.greyColor.value),
           ),
         ),
       ),
@@ -249,14 +251,12 @@ class Button extends StatelessWidget {
           height: height,
           padding: EdgeInsets.all(padding ?? 80.w),
           decoration: BoxDecoration(
-              border: borderColor == null
-                  ? null
-                  : Border.all(
-                      color: borderColor!,
-                    ),
+              border: Border.all(
+                color: borderColor ?? AppColor.blackColor.value,
+              ),
               borderRadius:
                   BorderRadius.all(Radius.circular(cornerRadius ?? 50.r)),
-              color: color ?? AppColor.primaryColor),
+              color: color ?? AppColor.primaryColor.value),
           child: Center(
               child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -269,8 +269,8 @@ class Button extends StatelessWidget {
                   buttonText,
                   textAlign: TextAlign.center,
                   style: textStyle ??
-                      AppTextStyles.textStyleBoldBodySmall
-                          .copyWith(color: textColor ?? AppColor.alphaGrey),
+                      AppTextStyles.textStyleBoldBodySmall.copyWith(
+                          color: textColor ?? AppColor.blackColor.value),
                 ),
               ),
               postFixIcon ?? const IgnorePointer(),
@@ -360,7 +360,10 @@ class _MyDropDownState extends State<MyDropDown> {
               prefixIcon: (widget.prefixIcon != null)
                   ? Padding(
                       padding: EdgeInsets.all(100.w),
-                      child: SvgViewer(svgPath: widget.prefixIcon!),
+                      child: SvgViewer(
+                        svgPath: widget.prefixIcon!,
+                        color: AppColor.primaryColor.value,
+                      ),
                     )
                   : null,
               contentPadding: EdgeInsets.all(10.h),
@@ -369,22 +372,22 @@ class _MyDropDownState extends State<MyDropDown> {
               ),
               disabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(50.r),
-                borderSide:
-                    BorderSide(color: widget.borderColor ?? AppColor.alphaGrey),
+                borderSide: BorderSide(
+                    color: widget.borderColor ?? AppColor.alphaGrey.value),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(50.r),
-                borderSide:
-                    BorderSide(color: widget.borderColor ?? AppColor.alphaGrey),
+                borderSide: BorderSide(
+                    color: widget.borderColor ?? AppColor.alphaGrey.value),
               ),
               errorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(50.r),
-                borderSide: BorderSide(color: AppColor.redColor),
+                borderSide: BorderSide(color: AppColor.redColor.value),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(50.r),
-                borderSide:
-                    BorderSide(color: widget.borderColor ?? AppColor.alphaGrey),
+                borderSide: BorderSide(
+                    color: widget.borderColor ?? AppColor.alphaGrey.value),
               ),
               filled: true,
               fillColor: widget.fillColor ?? Colors.transparent),
@@ -482,7 +485,7 @@ class _NetworkCircularImageState extends State<NetworkCircularImage> {
       placeholder: (context, url) => CircleAvatar(
         radius: widget.radius,
         child: CircularProgressIndicator(
-          color: AppColor.primaryColor,
+          color: AppColor.primaryColor.value,
         ),
       ),
       // progressIndicatorBuilder: (BuildContext context, String url,
@@ -558,7 +561,7 @@ class _NetworkPlainImageState extends State<NetworkPlainImage> {
       errorWidget: (context, url, error) => Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
-            color: AppColor.redColor.withOpacity(0.5)),
+            color: AppColor.redColor.value.withOpacity(0.5)),
         child: const Center(
           child: Icon(Icons.error),
         ),
@@ -573,7 +576,7 @@ Widget keyValueRowWidget(
     padding: const EdgeInsets.all(8.0),
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4),
-        color: isGrey ? AppColor.alphaGrey : AppColor.alphaGrey),
+        color: isGrey ? AppColor.alphaGrey.value : AppColor.alphaGrey.value),
     child: Row(
       children: [
         Expanded(
@@ -600,12 +603,14 @@ Widget getFeatureItem({required String title, Color? color}) {
     margin: const EdgeInsets.all(5),
     padding: const EdgeInsets.all(8),
     decoration: BoxDecoration(
-        color: color ?? AppColor.alphaGrey,
+        color: color ?? AppColor.alphaGrey.value,
         borderRadius: BorderRadius.circular(10)),
     child: Text(
       title,
       style: AppTextStyles.textStyleNormalBodyMedium.copyWith(
-          color: color != null ? AppColor.whiteColor : AppColor.whiteColor),
+          color: color != null
+              ? AppColor.whiteColor.value
+              : AppColor.whiteColor.value),
     ),
   );
 }

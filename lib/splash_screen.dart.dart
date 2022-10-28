@@ -43,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Icon(
             Icons.ac_unit_outlined,
             size: 50,
-            color: AppColor.greenColor,
+            color: AppColor.greenColor.value,
           ) /*Image.asset("assets/images/logo.png")*/,
         ),
       ),

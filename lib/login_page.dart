@@ -16,13 +16,13 @@ class LoginPage extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GetX<LoginController>(
-          initState: (state) {},
-          builder: (_) {
-            controller.loading.value;
-
-            return Stack(
+    return GetX<LoginController>(
+        initState: (state) {},
+        builder: (_) {
+          controller.loading.value;
+          return Scaffold(
+            backgroundColor: AppColor.whiteColor.value,
+            body: Stack(
               children: [
                 SingleChildScrollView(
                   child: Center(
@@ -35,7 +35,7 @@ class LoginPage extends GetView<LoginController> {
                           Container(
                             padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
-                              color: AppColor.primaryColor,
+                              color: AppColor.primaryColor.value,
                               borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(20),
                                 bottomRight: Radius.circular(20),
@@ -44,52 +44,39 @@ class LoginPage extends GetView<LoginController> {
                             child: Center(
                               child: Hero(
                                 tag: "logoSigUp",
-                                child: Image.asset(
-                                  "assets/images/travel.png",
-                                  height: 300,
-                                  width: 200,
-                                  color: AppColor.whiteColor,
-                                ),
+                                child: Image.asset("assets/images/travel.png",
+                                    color: LightThemeColor.alphaGrey,
+                                    height: 300,
+                                    width: 200),
                               ),
                             ),
                           ),
                           vSpace,
-                          Text(
-                            "Login to continue",
-                            style: AppTextStyles.textStyleBoldSubTitleLarge,
-                          ),
+                          Text('Login to continue',
+                              style: AppTextStyles.textStyleBoldSubTitleLarge
+                                  .copyWith(color: AppColor.blackColor.value)),
                           vSpace,
                           vSpace,
                           MyTextField(
                               controller: controller.emailController,
                               hintText: "Email",
-                              contentPadding: 16 /* context.height * 0.04*/,
-                              prefixIcon: "assets/icons/ic_mail.svg",
-                              focusBorderColor: AppColor.primaryBlueDarkColor,
-                              textColor: AppColor.blackColor,
-                              hintColor: AppColor.blackColor,
-                              fillColor: AppColor.alphaGrey,
                               validator: (String? value) =>
                                   value!.toValidEmail()),
                           vSpace,
                           Obx(
                             () => MyTextField(
                               controller: controller.passwordController,
-                              contentPadding: 16 /* context.height * 0.04*/,
                               suffixIconWidet: GestureDetector(
                                   onTap: () {
                                     controller.isObscure.value =
                                         !controller.isObscure.value;
                                   },
-                                  child: Icon(controller.isObscure.value
-                                      ? Icons.visibility_outlined
-                                      : Icons.visibility_off_outlined)),
+                                  child: Icon(
+                                      controller.isObscure.value
+                                          ? Icons.visibility_outlined
+                                          : Icons.visibility_off_outlined,
+                                      color: AppColor.blackColor.value)),
                               hintText: "Password",
-                              prefixIcon: "assets/icons/ic_lock.svg",
-                              focusBorderColor: AppColor.primaryBlueDarkColor,
-                              textColor: AppColor.blackColor,
-                              hintColor: AppColor.blackColor,
-                              fillColor: AppColor.alphaGrey,
                               obsecureText: controller.isObscure.value,
                               validator: (String? value) =>
                                   value!.toValidPassword(),
@@ -99,22 +86,23 @@ class LoginPage extends GetView<LoginController> {
                           vSpace,
                           Button(
                             buttonText: "Log in",
-                            padding: 16 /*context.height * 0.04*/,
-                            textColor: AppColor.whiteColor,
-                            color: AppColor.primaryBlueDarkColor,
+                            textColor: LightThemeColor.whiteColor,
+                            color: AppColor.primaryColor.value,
                             onTap: () {
                               FocusScope.of(context).unfocus();
-
+                              AppColor.isDark.toggle();
+                              print(AppColor.primaryColor.value);
                               //     controller.createAdminUser();
-                              if (_formKey.currentState!.validate()) {
-                                controller.login();
-                              }
+                              /* if (_formKey.currentState!.validate()) {
+                                  controller.login();
+                                }*/
                             },
                           ),
                           vSpace,
                           Text(
                             "Don't have an account?",
-                            style: AppTextStyles.textStyleNormalBodyMedium,
+                            style: AppTextStyles.textStyleNormalBodyMedium
+                                .copyWith(color: AppColor.blackColor.value),
                           ),
                           InkWell(
                             onTap: () {
@@ -125,7 +113,7 @@ class LoginPage extends GetView<LoginController> {
                               style: AppTextStyles.textStyleBoldBodyMedium
                                   .copyWith(
                                       decoration: TextDecoration.underline,
-                                      color: AppColor.primaryColor),
+                                      color: AppColor.primaryColor.value),
                             ),
                           ),
                         ],
@@ -135,8 +123,8 @@ class LoginPage extends GetView<LoginController> {
                 ),
                 if (controller.loading.isTrue) LoadingWidget(),
               ],
-            );
-          }),
-    );
+            ),
+          );
+        });
   }
 }

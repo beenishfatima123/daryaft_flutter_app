@@ -33,7 +33,7 @@ class AppBottomSheets {
             margin: EdgeInsets.only(top: 80.h, left: 30.w, right: 30.w),
             padding: const EdgeInsets.all(18.0),
             decoration: BoxDecoration(
-              color: AppColor.whiteColor,
+              color: AppColor.whiteColor.value,
               borderRadius: BorderRadius.only(
                   topRight: Radius.circular(100.r),
                   topLeft: Radius.circular(100.r)),
@@ -55,7 +55,7 @@ class AppBottomSheets {
                       },
                       child: Icon(
                         Icons.cancel,
-                        color: AppColor.blackColor,
+                        color: AppColor.blackColor.value,
                       ),
                     )
                   ],

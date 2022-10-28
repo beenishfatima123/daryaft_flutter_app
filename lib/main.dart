@@ -1,3 +1,4 @@
+import 'package:daryaft_flutter/common/styles.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await UserDefaults.getPref();
   await Firebase.initializeApp();
+
+  AppColor(await UserDefaults.getTheme() ?? false);
   // await HiveDb.clearDb();
 //  debugRepaintRainbowEnabled = (true);
   await AwesomeNotification.initializeNotifications();

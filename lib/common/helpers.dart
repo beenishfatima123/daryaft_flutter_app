@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import '../common/styles.dart';
-import '../my_application.dart';
 
 void printWrapped(String text) {
   final pattern = RegExp('.{1,800}'); // 800 is the size of each chunk
@@ -53,7 +51,7 @@ myAppBar(
     // iconTheme: IconThemeData(color: iconColor ?? AppColor.whiteColor),
     actions: actions ?? [],
     automaticallyImplyLeading: goBack,
-    backgroundColor: backGroundColor ?? AppColor.primaryColor,
+    backgroundColor: backGroundColor ?? AppColor.primaryColor.value,
     title: Text(
       title ?? "",
       style: AppTextStyles.textStyleBoldBodyMedium,
@@ -74,7 +72,7 @@ myCheckBox(
       Container(
         padding: EdgeInsets.all(8.r),
         decoration: BoxDecoration(
-          color: fillColor ?? AppColor.alphaGrey,
+          color: fillColor ?? AppColor.alphaGrey.value,
           borderRadius: BorderRadius.circular(4),
         ),
         child: InkWell(
@@ -84,7 +82,7 @@ myCheckBox(
             size: 15.0,
             color: isActive
                 ? (checkColor ?? Colors.black)
-                : fillColor ?? AppColor.alphaGrey,
+                : fillColor ?? AppColor.alphaGrey.value,
           ),
         ),
       ),
@@ -96,7 +94,7 @@ myCheckBox(
         child: Text(
           message,
           style: AppTextStyles.textStyleNormalBodySmall
-              .copyWith(color: messageColor ?? AppColor.alphaGrey),
+              .copyWith(color: messageColor ?? AppColor.alphaGrey.value),
         ),
       )
     ],
