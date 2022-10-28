@@ -7,6 +7,7 @@ import 'common/loading_widget.dart';
 import 'common/spaces_boxes.dart';
 import 'common/styles.dart';
 import 'login_controller.dart';
+import 'modules/common_modeuls/pages/choose_signup_page.dart';
 
 class LoginPage extends GetView<LoginController> {
   LoginPage({Key? key}) : super(key: key);
@@ -90,12 +91,11 @@ class LoginPage extends GetView<LoginController> {
                             color: AppColor.primaryColor.value,
                             onTap: () {
                               FocusScope.of(context).unfocus();
-                              AppColor.isDark.toggle();
-                              print(AppColor.primaryColor.value);
+
                               //     controller.createAdminUser();
-                              /* if (_formKey.currentState!.validate()) {
-                                  controller.login();
-                                }*/
+                              if (_formKey.currentState!.validate()) {
+                                controller.login();
+                              }
                             },
                           ),
                           vSpace,
@@ -106,7 +106,7 @@ class LoginPage extends GetView<LoginController> {
                           ),
                           InkWell(
                             onTap: () {
-                              //  Get.off(ChooseSignUpPage());
+                              Get.off(const ChooseSignUpPage());
                             },
                             child: Text(
                               "Sign up",

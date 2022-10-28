@@ -15,8 +15,8 @@ void main() async {
   AppColor(await UserDefaults.getTheme() ?? false);
   // await HiveDb.clearDb();
 //  debugRepaintRainbowEnabled = (true);
-  await AwesomeNotification.initializeNotifications();
-  await AwesomeNotification.startListing();
-  await PushNotificationsManager().init();
+  AwesomeNotification.initializeNotifications();
+  AwesomeNotification.startListing();
+  PushNotificationsManager().init();
   runApp(const MyApplication());
 }
