@@ -17,7 +17,7 @@ class ProfessionalHomePage extends GetView<ProfessionalHomeController> {
           body: SafeArea(
             child: Stack(
               children: [
-                Center(child: Text("ProfessionalHomeController")),
+                const Center(child: Text("Professional Home")),
                 if (controller.isLoading.isTrue) LoadingWidget(),
               ],
             ),
