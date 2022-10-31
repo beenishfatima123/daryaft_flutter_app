@@ -7,7 +7,7 @@ import 'package:get/get_core/src/get_main.dart';
 import '../common/styles.dart';
 import 'common/user_defaults.dart';
 import 'models/user_model.dart';
-import 'modules/travellers/pages/travelers _dashboard_page.dart';
+import 'modules/travellers/pages/traveler_dashboard_page.dart';
 
 class SplashScreen extends StatefulWidget {
   static const id = "/SplashScreen";
@@ -29,14 +29,16 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void gotoRelevantScreenOnUserType() async {
+    // UserDefaults.clearAll();
     UserModel? user = UserDefaults.getUserSession();
     if ((user != null) && (UserDefaults.getApiToken() != null)) {
+      print("user type= ${user.userType}");
       if (user.userType == 0) {
         ///travelers
-        Get.toNamed(TravelersDashboardPage.id);
+        Get.toNamed(TravelerDashBoardPage.id);
       } else if (user.userType == 1) {
         ///professionals
-        Get.toNamed(ProfessionalDashboardPage.id);
+        Get.toNamed(ProfessionalDashBoardPage.id);
       } else {
         UserDefaults.clearAll();
         Get.offNamed(LoginPage.id);

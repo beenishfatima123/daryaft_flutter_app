@@ -12,9 +12,11 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import '../../../common/app_pop_ups.dart';
 import '../../../common/styles.dart';
 
-class TravelerDashBoardPage extends GetView<TravelersDashboardController> {
+class TravelerDashBoardPage extends GetView<TravelerDashboardController> {
   RxInt _selectedIndex = 0.obs;
   static const id = '/TravelersDashboardPage';
+
+  TravelerDashBoardPage({super.key});
 
   @override
   Widget build(BuildContext context) {

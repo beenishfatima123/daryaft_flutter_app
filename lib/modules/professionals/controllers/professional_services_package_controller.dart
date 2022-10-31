@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
 
-class TravelerServicesPackageController extends GetxController {
+class ProfessionalServicesPackageController extends GetxController {
   RxBool isLoading = false.obs;
 }

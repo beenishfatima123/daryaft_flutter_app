@@ -4,15 +4,16 @@ import 'package:get/get.dart';
 
 import '../../../../common/loading_widget.dart';
 import '../controllers/professional_more_settings_controller.dart';
+import '../controllers/professional_services_package_controller.dart';
 
 class ProfessionalServicesPackagePage
-    extends GetView<TravelerServicesPackageController> {
+    extends GetView<ProfessionalServicesPackageController> {
   const ProfessionalServicesPackagePage({Key? key}) : super(key: key);
-  static const id = '/TravelerServicesPackagePage';
+  static const id = '/ProfessionalServicesPackagePage';
 
   @override
   Widget build(BuildContext context) {
-    return GetX<TravelerServicesPackageController>(
+    return GetX<ProfessionalServicesPackageController>(
       initState: (state) {},
       builder: (_) {
         return Scaffold(

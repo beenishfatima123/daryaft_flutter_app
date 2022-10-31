@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../../../common/user_defaults.dart';
 import '../../../models/user_model.dart';
 import '../../professionals/pages/professional _dashboard_page.dart';
-import '../../travellers/pages/travelers _dashboard_page.dart';
+import '../../travellers/pages/traveler_dashboard_page.dart';
 
 class LoginController extends GetxController {
   final loading = false.obs;
@@ -29,7 +29,7 @@ class LoginController extends GetxController {
           lastName: 'traveler',
           userType: 0,
           token: 'token ....'));
-      Get.toNamed(TravelersDashboardPage.id);
+      Get.toNamed(TravelerDashBoardPage.id);
     } else if (emailController.text.startsWith('professional')) {
       //goto professional
       ///0 traveler
@@ -40,7 +40,7 @@ class LoginController extends GetxController {
           userType: 1,
           token: 'token ....'));
 
-      Get.toNamed(ProfessionalDashboardPage.id);
+      Get.toNamed(ProfessionalDashBoardPage.id);
     }
     loading.value = false;
   }

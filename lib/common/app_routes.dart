@@ -8,6 +8,10 @@ import '../modules/common_modeuls/controller/login_controller.dart';
 import '../modules/common_modeuls/controller/traveler_signup_controller.dart';
 import '../modules/common_modeuls/pages/login_page.dart';
 import '../modules/common_modeuls/pages/traveler_signup_screen.dart';
+import '../modules/professionals/controllers/professional_bookings_controller.dart';
+import '../modules/professionals/controllers/professional_home_controller.dart';
+import '../modules/professionals/controllers/professional_more_settings_controller.dart';
+import '../modules/professionals/controllers/professional_services_package_controller.dart';
 import '../modules/travellers/controllers/traveler_bookings_controller.dart';
 import '../modules/travellers/controllers/traveler_more_settings_controller.dart';
 import '../modules/travellers/controllers/travelers_dashboard_controller.dart';
@@ -24,10 +28,14 @@ appRoutes() {
 
     ///professionals dashboard
     GetPage(
-        name: ProfessionalDashboardPage.id,
-        page: () => const ProfessionalDashboardPage(),
+        name: ProfessionalDashBoardPage.id,
+        page: () => ProfessionalDashBoardPage(),
         binding: BindingsBuilder(() {
           Get.put(ProfessionalDashboardController());
+          Get.put(ProfessionalHomeController());
+          Get.put(ProfessionalServicesPackageController());
+          Get.put(ProfessionalBookingsController());
+          Get.put(ProfessionalMoreSettingsController());
         })),
 
     ///travelers
@@ -35,13 +43,11 @@ appRoutes() {
         name: TravelerDashBoardPage.id,
         page: () => TravelerDashBoardPage(),
         binding: BindingsBuilder(() {
-          Get.put(TravelersDashboardController());
+          Get.put(TravelerDashboardController());
           Get.put(TravelerHomeController());
           Get.put(TravelerServicesPackageController());
           Get.put(TravelerBookingsController());
           Get.put(TravelerMoreSettingsController());
-
-          ///add other controllers......
         })),
 
     GetPage(
