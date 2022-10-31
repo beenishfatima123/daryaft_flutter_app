@@ -1,3 +1,4 @@
+import 'package:daryaft_flutter/modules/common_modeuls/pages/traveler_signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -5,7 +6,7 @@ import 'package:get/get_core/src/get_main.dart';
 import '../../../common/common_widgets.dart';
 import '../../../common/spaces_boxes.dart';
 import '../../../common/styles.dart';
-import '../../../login_page.dart';
+import 'login_page.dart';
 
 class ChooseSignUpPage extends StatelessWidget {
   const ChooseSignUpPage({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class ChooseSignUpPage extends StatelessWidget {
                   child: Image.asset(
                     "assets/images/travel.png",
                     height: 300,
-                    width: 300,
+                    width: 200,
                     color: AppColor.whiteColor.value,
                   ),
                 ),
@@ -45,7 +46,7 @@ class ChooseSignUpPage extends StatelessWidget {
             vSpace,
             Button(
               onTap: () {
-                // Get.toNamed(DriverSignUpScreen.id);
+                Get.toNamed(TravelerSignUpPage.id);
               },
               buttonText: "Sign up as travelers",
               textColor: AppColor.whiteColor.value,
@@ -57,7 +58,7 @@ class ChooseSignUpPage extends StatelessWidget {
             vSpace,
             Button(
               onTap: () {
-                // Get.toNamed(UserSignUpScreen.id);
+                Get.toNamed(TravelerSignUpPage.id);
               },
               buttonText: "Sign up as service provider",
               textColor: AppColor.whiteColor.value,

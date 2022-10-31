@@ -2,12 +2,12 @@ import 'package:daryaft_flutter/common/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'common/common_widgets.dart';
-import 'common/loading_widget.dart';
-import 'common/spaces_boxes.dart';
-import 'common/styles.dart';
-import 'login_controller.dart';
-import 'modules/common_modeuls/pages/choose_signup_page.dart';
+import '../../../common/common_widgets.dart';
+import '../../../common/loading_widget.dart';
+import '../../../common/spaces_boxes.dart';
+import '../../../common/styles.dart';
+import '../controller/login_controller.dart';
+import 'choose_signup_page.dart';
 
 class LoginPage extends GetView<LoginController> {
   LoginPage({Key? key}) : super(key: key);
