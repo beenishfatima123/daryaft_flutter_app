@@ -1,0 +1,60 @@
+{
+  "Services": [
+    {
+      "tag": "Accommodations",
+      "price": "200",
+      "items": [
+        "Hotels",
+        "Restaurants",
+        "Rooms",
+        "Flats",
+        "Guest House",
+        "Pent House"
+      ]
+    },
+    {
+      "tag": "Transportation",
+      "price": "400",
+      "items": [
+        "Owning taxis",
+        "Bus",
+        "Car",
+        "Boats",
+        "Jeep",
+        "Bike"
+      ]
+    },
+    {
+      "tag": "Shopping",
+      "price": "500",
+      "items": [
+        "Retail Stores",
+        "Bakery",
+        "Mall",
+        "Utility Store",
+        "Departmental Store"
+      ]
+    },
+    {
+      "tag": "Entertainment",
+      "price": "900",
+      "items": [
+        "Movies",
+        "Bonfire",
+        "Hiking",
+        "PVR",
+        "Cinema Theater"
+      ]
+    },
+    {
+      "tag": "Tour Guide",
+      "price": "100",
+      "items": [
+        "Hiking",
+        "Camping"
+      ]
+    }
+  ]
+}
+
+

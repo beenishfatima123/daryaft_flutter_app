@@ -6,7 +6,8 @@ import 'package:get/get_core/src/get_main.dart';
 
 import '../common/styles.dart';
 import 'common/user_defaults.dart';
-import 'models/user_model.dart';
+
+import 'modules/common_modeuls/models/user_model.dart';
 import 'modules/travellers/pages/traveler_dashboard_page.dart';
 
 class SplashScreen extends StatefulWidget {

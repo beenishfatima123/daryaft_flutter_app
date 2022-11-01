@@ -1,7 +1,7 @@
+import 'package:daryaft_flutter/modules/common_modeuls/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
-import '../models/user_model.dart';
 import 'helpers.dart';
 
 class UserDefaults {

@@ -1,8 +1,8 @@
+import 'package:daryaft_flutter/modules/common_modeuls/models/user_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../../../common/user_defaults.dart';
-import '../../../models/user_model.dart';
 import '../../professionals/pages/professional _dashboard_page.dart';
 import '../../travellers/pages/traveler_dashboard_page.dart';
 

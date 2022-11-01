@@ -1,4 +1,4 @@
-import '../dio_networking/decodable.dart';
+import 'package:daryaft_flutter/dio_networking/decodable.dart';
 
 class UserModel implements Decodeable {
   String? token;
