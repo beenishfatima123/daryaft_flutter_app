@@ -108,7 +108,7 @@ class ProfessionalDashBoardPage
 
   static final List<Widget> _widgetOptions = <Widget>[
     const ProfessionalHomePage(),
-    const ProfessionalServicesPackagePage(),
+    ProfessionalServicesPackagePage(),
     const ProfessionalBookingPage(),
     const ProfessionalMoreSettingsPage(),
   ];

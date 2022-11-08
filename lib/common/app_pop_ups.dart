@@ -2,7 +2,6 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:daryaft_flutter/common/spaces_boxes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 import '../common/styles.dart';
 import '../my_application.dart';
@@ -186,5 +185,30 @@ class AppPopUps {
             )).then((value) {
       isDialogShowing = false;
     });
+  }
+
+  static Future<bool> showAlertDialog({
+    onSubmit,
+    required String message,
+  }) async {
+    return await showDialog(
+        context: myContext!,
+        builder: (context) {
+          return AlertDialog(
+            title: Text(
+              message,
+              style: AppTextStyles.textStyleNormalBodyMedium,
+            ),
+            actions: <Widget>[
+              TextButton(
+                onPressed: onSubmit ??
+                    () {
+                      Navigator.pop(context, true);
+                    },
+                child: const Text('Ok'),
+              ),
+            ],
+          );
+        });
   }
 }

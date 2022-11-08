@@ -1,3 +1,4 @@
+import 'package:daryaft_flutter/common/app_pop_ups.dart';
 import 'package:daryaft_flutter/common/constants.dart';
 import 'package:daryaft_flutter/modules/professionals/models/professionals_packaged_services.dart';
 import 'package:flutter/material.dart';
@@ -11,16 +12,17 @@ import '../controllers/professional_services_package_controller.dart';
 
 class ProfessionalServicesPackagePage
     extends GetView<ProfessionalServicesPackageController> {
-  const ProfessionalServicesPackagePage({Key? key}) : super(key: key);
+  ProfessionalServicesPackagePage({Key? key}) : super(key: key);
   static const id = '/ProfessionalServicesPackagePage';
-
+  late List<Widget> servicesList;
   @override
   Widget build(BuildContext context) {
     return GetX<ProfessionalServicesPackageController>(
-      initState: (state) {},
-      builder: (_) {
+      initState: (state) {
         ///
-        var servicesList = (controller.listOfServices
+      },
+      builder: (_) {
+        servicesList = (controller.listOfServices
             .map((element) => getServiceItem(service: element))).toList();
         servicesList.add(addNewServiceWidget());
 
@@ -35,7 +37,7 @@ class ProfessionalServicesPackagePage
                     vSpace,
                     Center(
                         child: Text(
-                      "Services & Packages Provided by You",
+                      "Services & Packages",
                       textAlign: TextAlign.center,
                       style: AppTextStyles.textStyleBoldTitleLarge
                           .copyWith(color: AppColor.primaryColor.value),
@@ -109,8 +111,9 @@ class ProfessionalServicesPackagePage
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
-                  style: AppTextStyles.textStyleBoldBodyMedium
-                      .copyWith(color: AppColor.whiteColor.value)),
+                  style: AppTextStyles.textStyleBoldBodyMedium.copyWith(
+                    color: AppColor.whiteColor.value,
+                  )),
             ),
             Icon(Icons.arrow_circle_down_sharp,
                 size: 18, color: AppColor.whiteColor.value)
@@ -121,17 +124,24 @@ class ProfessionalServicesPackagePage
   }
 
   Widget addNewServiceWidget() {
-    return Container(
-      height: 50.h,
-      margin: const EdgeInsets.all(6),
-      width: 80,
-      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 6),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(18),
-          color: AppColor.primaryColor.value),
-      child: Center(
-          child: Icon(Icons.add_circle_outline,
-              size: 18, color: AppColor.whiteColor.value)),
+    return InkWell(
+      onTap: () {
+        AppPopUps.showOneInputDialog(onSubmit: (text) {
+          //  controller.listOfServices.add(item)
+        });
+      },
+      child: Container(
+        height: 50.h,
+        margin: const EdgeInsets.all(6),
+        width: 80,
+        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 6),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(18),
+            color: AppColor.primaryColor.value),
+        child: Center(
+            child: Icon(Icons.add_circle_outline,
+                size: 18, color: AppColor.whiteColor.value)),
+      ),
     );
   }
 
@@ -163,22 +173,25 @@ class ProfessionalServicesPackagePage
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),
-                  children: package.services.first.items
-                      .map((e) => Card(
-                            color: AppColor.alphaGrey.value,
-                            child: Container(
-                              margin: const EdgeInsets.all(4),
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 4),
-                              child: Center(
-                                  child: Text(
-                                e.toString(),
-                                style: AppTextStyles.textStyleBoldBodyXSmall
-                                    .copyWith(color: AppColor.blackColor.value),
-                              )),
-                            ),
-                          ))
-                      .toList()),
+                  children: package.services.isNotEmpty
+                      ? package.services
+                          .map((ProfessionalServiceModel e) => Card(
+                                color: AppColor.alphaGrey.value,
+                                child: Container(
+                                  margin: const EdgeInsets.all(4),
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 4),
+                                  child: Center(
+                                      child: Text(
+                                    e.tag ?? '',
+                                    style: AppTextStyles.textStyleBoldBodyXSmall
+                                        .copyWith(
+                                            color: AppColor.blackColor.value),
+                                  )),
+                                ),
+                              ))
+                          .toList()
+                      : []),
             )
           ],
         ),
